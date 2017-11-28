@@ -71,7 +71,7 @@ new Vue({
 | preload              | `Number`  | `0`          | Set lazyload preload number.                                       |
 | baseWidth            | `Number`  | `0`          | Set swiper base width, unit px. (default width is swiper's width, but when you init a swiper with invisible, default width can not be set right, you need set base width in this time.) |
 | baseHeight           | `Number`  | `0`          | Set swiper base height, unit px. (need when vertical, default height is swiper's height, but when you init a swiper with invisible, default height can not be set right, you need set base height in this time.) |
-| baseSizeDom          | `String | dom`  | ``     | Set swiper base width and height with a dom or a selector.(priority is lower than baseWidth and baseHeight)          |
+| baseSizeDom          | `String  dom`  | ``      | Set swiper base width and height with a dom or a selector.(priority is lower than baseWidth and baseHeight)          |
 
 ### Methods
 | Method            | Description              |
