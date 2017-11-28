@@ -43,18 +43,17 @@ new Vue({
     <vue-swiper-slide>Page 2</vue-swiper-slide>
     <vue-swiper-slide>Page 3</vue-swiper-slide>
 </vue-swiper>
-<vue-swiper :show-index.sync="showIndex2" loop indicators uselazyload :preload="1" :auto="5000" class="swiper_img" @slide-change="slideChange">
-    <vue-swiper-slide class="swiper-item" :key="item.src" v-for="(item, index) in bannerList">
-        <div class="item">
-            <div class="c-default-bg img-wrap">
-                <img class="lazy" :data-src="item.src">
-            </div>
-        </div>
-    </vue-swiper-slide>
-</vue-swiper>
 ```
 
 ## Use lazyload
+
+```html
+<vue-swiper uselazyload :preload="1">
+    <vue-swiper-slide class="swiper-item" :key="item.src" v-for="(item, index) in bannerList">
+        <img class="lazy" :data-src="item.src">
+    </vue-swiper-slide>
+</vue-swiper>
+```
 
 
 ## Api
