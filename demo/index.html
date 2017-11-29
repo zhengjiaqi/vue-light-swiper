@@ -1,173 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>vue-swiper DEMO</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <style>
-        [v-cloak] {
-            display: none;
-        }
-
-        html, body {
-            margin: 0;
-        }
-
-        h2, h3 {
-            text-align: center;
-        }
-
-        .swiper_img img{
-            width: 300px;
-            height: 140px;
-        }
-
-        .swiper_img .item{
-            width: 100%;
-            text-align: center;
-        }
-        .vertical_swiper{
-            height: 150px;
-        }
-        .button_wrap{
-            text-align: center;
-            margin: 10px 0;
-        }
-        button{
-            background-image: linear-gradient(35deg, #25cdff, #467bf3);
-            line-height: 2;
-            border: 0;
-            color: #fff;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-<div id="app" v-cloak>
-    <h2>vue-swiper demo</h2>
-    <h3>Horizontal</h3>
-    <div class="button_wrap">
-        <button class="append_child" @click="appendSlide">Append child</button>
-    </div>
-    <vue-swiper :show-index.sync="showIndex1" indicators class="swiper_img">
-        <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
-            <div class="item">
-                <div class="c-default-bg img-wrap">
-                    <a :href="item.url">
-                        <img :src="item.src">
-                    </a>
-                </div>
-            </div>
-        </vue-swiper-slide>
-    </vue-swiper>
-    <div class="button_wrap">
-        <button @click="prevSlide1">prev</button>
-        <button @click="nextSlide1">next</button>
-    </div>
-    <h3>Horizontal auto loop lazyLoad</h3>
-    <vue-swiper :show-index.sync="showIndex2" loop indicators uselazyload :preload="1" :auto="5000" class="swiper_img" @slide-change="slideChange">
-        <vue-swiper-slide class="swiper-item" :key="item.src" v-for="(item, index) in bannerList">
-            <div class="item">
-                <div class="c-default-bg img-wrap">
-                    <img class="lazy" :data-src="item.src">
-                </div>
-            </div>
-        </vue-swiper-slide>
-    </vue-swiper>
-
-    <div class="button_wrap">
-        <button @click="prevSlide2">prev</button>
-        <button @click="nextSlide2">next</button>
-    </div>
-
-    <h3>Vertical</h3>
-
-    <vue-swiper class="swiper_img vertical_swiper" indicators vertical class="swiper_img">
-        <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
-            <div class="item">
-                <div class="c-default-bg img-wrap">
-                    <a :href="item.url">
-                        <img :src="item.src">
-                    </a>
-                </div>
-            </div>
-        </vue-swiper-slide>
-    </vue-swiper>
-
-    <h3>Vertical auto loop</h3>
-
-    <vue-swiper class="swiper_img vertical_swiper" loop indicators vertical :auto="5000"  class="swiper_img">
-        <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
-            <div class="item">
-                <div class="c-default-bg img-wrap">
-                    <a :href="item.url">
-                        <img :src="item.src">
-                    </a>
-                </div>
-            </div>
-        </vue-swiper-slide>
-    </vue-swiper>
-
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.5.8/vue.js"></script>
-<script src="../dist/vue-swiper.js"></script>
-<script>
-    console.log('vueSwiper:',VueSwiper);
-    new Vue({
-        el: '#app',
-        components: {
-            vueSwiper: VueSwiper.vueSwiper,
-            vueSwiperSlide: VueSwiper.vueSwiperSlide
-        },
-        data: {
-            showIndex1: 0,
-            showIndex2: 0,
-            bannerList: [
-                {
-                    src: "//ascdn.baidu.com/0df2e2444e6024f08398a07ed497384c71be9a82d.jpeg",
-                    url: "http://www.baidu.com"
-                },
-                {
-                    src: "//ascdn.baidu.com/00295a56ab1a744f601da8650d998481d6b4ad59c.jpeg",
-                    url: "http://www.baidu.com"
-                },
-
-                {
-                    src: "//ascdn.baidu.com/09e754fe0e0098e8a299c35a164589bead740cd4c.jpeg",
-                    url: "http://www.baidu.com"
-                },
-
-                {
-                    src: "//ascdn.baidu.com/04302959fd8954f3815aec94e2f0f019e89da8260.jpeg",
-                    url: "http://www.baidu.com"
-                }
-            ]
-        },
-        methods: {
-            slideChange(index, oldIndex){
-                console.log('slideChange:', index, oldIndex);
-            },
-            appendSlide: function (slideText) {
-                this.bannerList.push({
-                    src: '//ascdn.baidu.com/085a1597bb8ad07183a7b5cb224551a856e42c6b0.jpeg',
-                    url: "http://www.baidu.com"
-                });
-            },
-            prevSlide1: function () {
-                this.showIndex1 = this.showIndex1 - 1;
-            },
-            nextSlide1: function () {
-                this.showIndex1 = this.showIndex1 + 1;
-            },
-            prevSlide2: function () {
-                this.showIndex2 = this.showIndex2 - 1;
-                console.log('prevSlide',this.showIndex);
-            },
-            nextSlide2: function () {
-                this.showIndex2 = this.showIndex2 + 1;
+    <head>
+        <meta charset="UTF-8">
+        <title>vue-swiper DEMO</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <style>
+            [v-cloak] {
+                display: none;
             }
-        }
-    });
-</script>
-</body>
+
+            html, body {
+                margin: 0;
+            }
+
+            h2, h3 {
+                text-align: center;
+            }
+
+            .swiper_img img{
+                width: 300px;
+                height: 140px;
+            }
+
+            .swiper_img .item{
+                width: 100%;
+                text-align: center;
+            }
+            .vertical_swiper{
+                height: 150px;
+            }
+            .button_wrap{
+                text-align: center;
+                margin: 10px 0;
+            }
+            button{
+                background-image: linear-gradient(35deg, #25cdff, #467bf3);
+                line-height: 2;
+                border: 0;
+                color: #fff;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <h2>vue-swiper demo</h2>
+            <h3>Horizontal</h3>
+            <div class="button_wrap">
+                <button class="append_child" @click="appendSlide">Append child</button>
+            </div>
+            <vue-swiper :show-index.sync="showIndex1" indicators class="swiper_img">
+                <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
+                    <div class="item">
+                        <div class="c-default-bg img-wrap">
+                            <a :href="item.url">
+                                <img :src="item.src">
+                            </a>
+                        </div>
+                    </div>
+                </vue-swiper-slide>
+            </vue-swiper>
+            <div class="button_wrap">
+                <button @click="prevSlide1">prev</button>
+                <button @click="nextSlide1">next</button>
+            </div>
+            <h3>Horizontal auto loop lazyLoad</h3>
+            <vue-swiper :show-index.sync="showIndex2" loop indicators uselazyload :preload="1" :auto="5000" class="swiper_img" @slide-change="slideChange">
+                <vue-swiper-slide class="swiper-item" :key="item.src" v-for="(item, index) in bannerList">
+                    <div class="item">
+                        <div class="c-default-bg img-wrap">
+                            <img class="lazy" :data-src="item.src">
+                        </div>
+                    </div>
+                </vue-swiper-slide>
+            </vue-swiper>
+
+            <div class="button_wrap">
+                <button @click="prevSlide2">prev</button>
+                <button @click="nextSlide2">next</button>
+            </div>
+
+            <h3>Vertical</h3>
+
+            <vue-swiper class="swiper_img vertical_swiper" indicators vertical class="swiper_img">
+                <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
+                    <div class="item">
+                        <div class="c-default-bg img-wrap">
+                            <a :href="item.url">
+                                <img :src="item.src">
+                            </a>
+                        </div>
+                    </div>
+                </vue-swiper-slide>
+            </vue-swiper>
+
+            <h3>Vertical auto loop</h3>
+
+            <vue-swiper class="swiper_img vertical_swiper" loop indicators vertical :auto="5000"  class="swiper_img">
+                <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
+                    <div class="item">
+                        <div class="c-default-bg img-wrap">
+                            <a :href="item.url">
+                                <img :src="item.src">
+                            </a>
+                        </div>
+                    </div>
+                </vue-swiper-slide>
+            </vue-swiper>
+
+        </div>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.5.8/vue.js"></script>
+        <script src="../dist/vue-swiper.js"></script>
+        <script>
+            console.log('vueSwiper:',VueSwiper);
+            new Vue({
+                el: '#app',
+                components: {
+                    vueSwiper: VueSwiper.vueSwiper,
+                    vueSwiperSlide: VueSwiper.vueSwiperSlide
+                },
+                data: {
+                    showIndex1: 0,
+                    showIndex2: 0,
+                    bannerList: [
+                        {
+                            src: "//ascdn.baidu.com/0df2e2444e6024f08398a07ed497384c71be9a82d.jpeg",
+                            url: "http://www.baidu.com"
+                        },
+                        {
+                            src: "//ascdn.baidu.com/00295a56ab1a744f601da8650d998481d6b4ad59c.jpeg",
+                            url: "http://www.baidu.com"
+                        },
+
+                        {
+                            src: "//ascdn.baidu.com/09e754fe0e0098e8a299c35a164589bead740cd4c.jpeg",
+                            url: "http://www.baidu.com"
+                        },
+
+                        {
+                            src: "//ascdn.baidu.com/04302959fd8954f3815aec94e2f0f019e89da8260.jpeg",
+                            url: "http://www.baidu.com"
+                        }
+                    ]
+                },
+                methods: {
+                    slideChange(index, oldIndex){
+                        console.log('slideChange:', index, '  oldIndex:' ,oldIndex);
+                    },
+                    appendSlide: function (slideText) {
+                        this.bannerList.push({
+                            src: '//ascdn.baidu.com/085a1597bb8ad07183a7b5cb224551a856e42c6b0.jpeg',
+                            url: "http://www.baidu.com"
+                        });
+                    },
+                    prevSlide1: function () {
+                        this.showIndex1 = this.showIndex1 - 1;
+                    },
+                    nextSlide1: function () {
+                        this.showIndex1 = this.showIndex1 + 1;
+                    },
+                    prevSlide2: function () {
+                        this.showIndex2 = this.showIndex2 - 1;
+                        console.log('prevSlide',this.showIndex);
+                    },
+                    nextSlide2: function () {
+                        this.showIndex2 = this.showIndex2 + 1;
+                    }
+                }
+            });
+        </script>
+    </body>
 </html>

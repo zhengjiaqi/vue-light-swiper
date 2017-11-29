@@ -121,7 +121,7 @@
             showIndex(val) {
                 setTimeout(() => {
                     this._transitionToPage(val);
-                }, 10);
+                }, 30);
             }
         },
         created() {
