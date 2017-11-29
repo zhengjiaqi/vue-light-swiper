@@ -73,13 +73,6 @@ new Vue({
 | baseHeight           | `Number`  | `0`          | Set swiper base height, unit px. (need when vertical, default height is swiper's height, but when you init a swiper with invisible, default height can not be set right, you need set base height in this time.) |
 | baseSizeDom          | `String、dom`  | ``      | Set swiper base width and height with a dom or a selector.(priority is lower than baseWidth and baseHeight)          |
 
-### Methods
-| Method            | Description              |
-|-------------------|--------------------------|
-| next()            | Go next page.            |
-| prev()            | Go previous page.        |
-| setPage(`Number`) | Set current page number. |
-
 ### Events
 | Name                            | Parameters | Description                                                                                                                                                  |
 |--------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
