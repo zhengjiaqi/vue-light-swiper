@@ -312,17 +312,21 @@
             _resize() {
                 let width = 0;
                 let height = 0;
+                let baseSizeDomWidth = 0;
+                let baseSizeDomHeight = 0;
                 let baseSizeDom = this.baseSizeDom;
                 if (baseSizeDom) {
                     if (typeof baseSizeDom === 'string') {
                         baseSizeDom = document.querySelector(baseSizeDom) || {style: {width: 0, height: 0}};
                     }
-                    width = baseSizeDom.offsetWidth || parseInt(baseSizeDom.style.width) || 0;
-                    height = baseSizeDom.offsetHeight || parseInt(baseSizeDom.style.height) || 0;
+                    baseSizeDomWidth = baseSizeDom.offsetWidth || parseInt(baseSizeDom.style.width) || 0;
+                    baseSizeDomHeight = baseSizeDom.offsetHeight || parseInt(baseSizeDom.style.height) || 0;
                 }
 
                 if (this.baseWidth) {
                     width = this.baseWidth;
+                } if(baseSizeDomWidth) {
+                    width = baseSizeDomWidth;
                 } else {
                     width = this.$el.offsetWidth;
                 }
@@ -334,6 +338,8 @@
                 if (this.vertical) {
                     if (this.baseHeight) {
                         height = this.baseHeight;
+                    } if(baseSizeDomHeight) {
+                        height = baseSizeDomHeight;
                     } else {
                         height = this.$el.offsetHeight;
                     }
