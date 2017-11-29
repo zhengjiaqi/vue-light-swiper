@@ -134,10 +134,9 @@
             this.activeIndex = this.showIndex;
             this._setTimer();
             this._resize();
+            this._handleUpdate();
             this.$on('childUpdate', throttle(function() {
-                this.slotsList = this.$slots.default;
-                this._setHelperDOM();
-                this._lazyLoad();
+                this._handleUpdate();
             }, this.defaultDuration + 100));
             window.addEventListener('resize', this._resize);
             document.addEventListener('touchmove', this.onTouchMove, {passive: false}, false);
@@ -151,6 +150,11 @@
         },
 
         methods: {
+            _handleUpdate() {
+                this.slotsList = this.$slots.default;
+                this._setHelperDOM();
+                this._lazyLoad();
+            },
             onTouchstart(e) {
                 if (this.slotsList.length == 1) {
                     return;

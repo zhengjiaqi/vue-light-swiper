@@ -45,6 +45,11 @@ new Vue({
 </vue-swiper>
 ```
 
+## Usage in ssr
+```js
+import {vueSwiper, vueSwiperSlide} from 'vue-light-swiper/src';
+````
+
 ## Use lazyload
 
 ```html
