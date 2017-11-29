@@ -119,7 +119,9 @@
                 this._setTimer();
             },
             showIndex(val) {
-                this._transitionToPage(val);
+                setTimeout(() => {
+                    this._transitionToPage(val);
+                }, 10);
             }
         },
         created() {
@@ -195,16 +197,16 @@
                 this._transitionToPage(this.activeIndex);
             },
             onTransitionend(e) {
-                this.transitionDuration = 0;
-                this._slid(this.activeIndex, 0);
-                setTimeout(() => {
-                    this.$emit('slide-end', this.activeIndex);
-                    if (this.oldActiveIndex !== this.activeIndex) {
-                        this.$emit('slide-change', this.activeIndex, this.oldActiveIndex);
-                        this.$emit('update:showIndex', this.activeIndex);
-                        this.oldActiveIndex = this.activeIndex;
-                    }
-                }, 100);
+                if(this.loop && (this.activeIndex === 0 || this.activeIndex === this.slotsList.length - 1)){
+                    this.transitionDuration = 0;
+                    this._slid(this.activeIndex, 0);
+                }
+                this.$emit('slide-end', this.activeIndex);
+                if (this.oldActiveIndex !== this.activeIndex) {
+                    this.$emit('slide-change', this.activeIndex, this.oldActiveIndex);
+                    this.$emit('update:showIndex', this.activeIndex);
+                    this.oldActiveIndex = this.activeIndex;
+                }
             },
             _lazyLoad() {
                 if (!this.uselazyload) {

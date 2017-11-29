@@ -1,8 +1,8 @@
-[![npm](https://img.shields.io/npm/l/vue-light-swiper.svg?maxAge=2592000)](https://raw.githubusercontent.com/zhengjiaqi/vue-light-swiper/master/LICENSE)
-[![npm](https://img.shields.io/npm/v/vue-light-swiper.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-light-swiper)
-[![GitHub release](https://img.shields.io/github/release/zhengjiaqi/vue-light-swiper.svg?maxAge=2592000)](https://github.com/zhengjiaqi/vue-light-swiper/releases)
-[![GitHub issues](https://img.shields.io/github/issues/zhengjiaqi/vue-light-swiper.svg?maxAge=2592000)](https://github.com/zhengjiaqi/vue-light-swiper/issues)
-[![GitHub stars](https://img.shields.io/github/stars/zhengjiaqi/vue-light-swiper.svg?style=social&label=Star&maxAge=2592000)](https://github.com/zhengjiaqi/vue-light-swiper)
+[![npm](https://img.shields.io/npm/l/vue-light-swiper.svg)](https://raw.githubusercontent.com/zhengjiaqi/vue-light-swiper/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/vue-light-swiper.svg)](https://www.npmjs.com/package/vue-light-swiper)
+[![GitHub release](https://img.shields.io/github/release/zhengjiaqi/vue-light-swiper.svg)](https://github.com/zhengjiaqi/vue-light-swiper/releases)
+[![GitHub issues](https://img.shields.io/github/issues/zhengjiaqi/vue-light-swiper.svg)](https://github.com/zhengjiaqi/vue-light-swiper/issues)
+[![GitHub stars](https://img.shields.io/github/stars/zhengjiaqi/vue-light-swiper.svg?style=social&label=Star)](https://github.com/zhengjiaqi/vue-light-swiper)
 
 [![NPM](https://nodei.co/npm/vue-light-swiper.png?downloads=true&downloadRank=true)](https://nodei.co/npm/vue-light-swiper/)
 
