@@ -3,6 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/zhengjiaqi/vue-light-swiper.svg)](https://github.com/zhengjiaqi/vue-light-swiper/releases)
 [![GitHub issues](https://img.shields.io/github/issues/zhengjiaqi/vue-light-swiper.svg)](https://github.com/zhengjiaqi/vue-light-swiper/issues)
 [![GitHub stars](https://img.shields.io/github/stars/zhengjiaqi/vue-light-swiper.svg?style=social&label=Star)](https://github.com/zhengjiaqi/vue-light-swiper)
+[![travis test](https://travis-ci.org/zhengjiaqi/vue-light-swiper.svg?branch=master)](https://travis-ci.org/zhengjiaqi/vue-light-swiper)
 
 [![NPM](https://nodei.co/npm/vue-light-swiper.png?downloads=true&downloadRank=true)](https://nodei.co/npm/vue-light-swiper/)
 
