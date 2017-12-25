@@ -1,5 +1,8 @@
 <template>
-    <div class="swiper-item" :style="style">
+    <div class="swiper-item" :style="style"
+        :class="{
+            'is-active': active
+        }">
         <slot></slot>
     </div>
 </template>
@@ -23,7 +26,13 @@
                 style: {
                     width: 100 + '%',
                     height: 'auto'
-                }
+                },
+                active: false
+            }
+        },
+        methods: {
+            _setActive(index, activeIndex) {
+                this.active = index === activeIndex;
             }
         },
         updated(val,oldval) {
@@ -34,7 +43,7 @@
 
 <style lang="less" rel="stylesheet/less">
     .swiper {
-        &-item {
+        &-item, &-item-help {
             width: 1200px;
             box-sizing: border-box;
             flex-shrink: 0;

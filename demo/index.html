@@ -48,9 +48,11 @@
             <h3>Horizontal</h3>
             <div class="button_wrap">
                 <button class="append_child" @click="appendSlide">Append child</button>
+                <button class="append_child" @click="changeSlide">Change child</button>
+
             </div>
             <vue-swiper :show-index.sync="showIndex1" indicators class="swiper_img">
-                <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
+                <vue-swiper-slide :key="index" v-for="(item, index) in bannerList">
                     <div class="item">
                         <div class="c-default-bg img-wrap">
                             <a :href="item.url">
@@ -66,7 +68,7 @@
             </div>
             <h3>Horizontal auto loop lazyLoad</h3>
             <vue-swiper :show-index.sync="showIndex2" loop indicators uselazyload :preload="1" :auto="5000" class="swiper_img" @slide-change="slideChange">
-                <vue-swiper-slide class="swiper-item" :key="item.src" v-for="(item, index) in bannerList">
+                <vue-swiper-slide :key="item.src" v-for="(item, index) in bannerList">
                     <div class="item">
                         <div class="c-default-bg img-wrap">
                             <img class="lazy" :data-src="item.src">
@@ -83,7 +85,7 @@
             <h3>Vertical</h3>
 
             <vue-swiper class="swiper_img vertical_swiper" indicators vertical class="swiper_img">
-                <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
+                <vue-swiper-slide :key="index" v-for="(item, index) in bannerList">
                     <div class="item">
                         <div class="c-default-bg img-wrap">
                             <a :href="item.url">
@@ -97,7 +99,7 @@
             <h3>Vertical auto loop</h3>
 
             <vue-swiper class="swiper_img vertical_swiper" loop indicators vertical :auto="5000"  class="swiper_img">
-                <vue-swiper-slide class="swiper-item" :key="index" v-for="(item, index) in bannerList">
+                <vue-swiper-slide :key="index" v-for="(item, index) in bannerList">
                     <div class="item">
                         <div class="c-default-bg img-wrap">
                             <a :href="item.url">
@@ -152,6 +154,9 @@
                             src: '//ascdn.baidu.com/085a1597bb8ad07183a7b5cb224551a856e42c6b0.jpeg',
                             url: "http://www.baidu.com"
                         });
+                    },
+                    changeSlide: function (slideText) {
+                        this.bannerList[0].src = '//ascdn.baidu.com/09e754fe0e0098e8a299c35a164589bead740cd4c.jpeg';
                     },
                     prevSlide1: function () {
                         this.showIndex1 = this.showIndex1 - 1;

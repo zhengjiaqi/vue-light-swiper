@@ -8,11 +8,11 @@
              'transform' : 'translate3d(' + translateX + 'px,' + translateY + 'px, 0)',
              'transition-duration': transitionDuration + 'ms'
          }" @transitionend="onTransitionend">
-            <div class="swiper-item b2" v-if="loop && addonBefore2" v-html="addonBefore2" :style="addonStyle"></div>
-            <div class="swiper-item b1" v-if="loop && addonBefore" v-html="addonBefore" :style="addonStyle"></div>
+            <div class="swiper-item-help b2" v-if="loop && addonBefore2" v-html="addonBefore2" :style="addonStyle"></div>
+            <div class="swiper-item-help b1" v-if="loop && addonBefore" v-html="addonBefore" :style="addonStyle"></div>
             <slot></slot>
-            <div class="swiper-item a1" v-if="loop && addonAfter" v-html="addonAfter" :style="addonStyle"></div>
-            <div class="swiper-item a2" v-if="loop && addonAfter2" v-html="addonAfter2" :style="addonStyle"></div>
+            <div class="swiper-item-help a1" v-if="loop && addonAfter" v-html="addonAfter" :style="addonStyle"></div>
+            <div class="swiper-item-help a2" v-if="loop && addonAfter2" v-html="addonAfter2" :style="addonStyle"></div>
         </div>
         <div class="swiper-indicators" v-if="indicators">
             <div :class="{'swiper-dot': true,'active': index === activeIndex}" :key="index"
@@ -125,7 +125,6 @@
             }
         },
         created() {
-            this.slotsList = this.$slots.default;
             this.childrenList = this.$children;
             this.onTouchMove = this.onTouchMove.bind(this);
             this.onTouchEnd = this.onTouchEnd.bind(this);
@@ -137,7 +136,7 @@
             this._handleUpdate();
             this.$on('childUpdate', throttle(function() {
                 this._handleUpdate();
-            }, this.defaultDuration + 100));
+            }, this.defaultDuration));
             window.addEventListener('resize', this._resize);
             document.addEventListener('touchmove', this.onTouchMove, {passive: false}, false);
             document.addEventListener('touchend', this.onTouchEnd, {passive: false}, false);
@@ -152,6 +151,7 @@
         methods: {
             _handleUpdate() {
                 this.slotsList = this.$slots.default;
+                this._setSlideActive();
                 this._setHelperDOM();
                 this._lazyLoad();
             },
@@ -230,6 +230,11 @@
                     }
                     i++;
                 }
+            },
+            _setSlideActive() {
+                this.slotsList.forEach(($slot, index) => {
+                    $slot.componentInstance._setActive(index, this.activeIndex);
+                })
             },
             _setHelperDOM() {
                 var len = this.slotsList.length;
@@ -377,9 +382,11 @@
 
     function throttle(fn, delay) {
         var timer = null;
+        var time = new Date().getTime();
         return function() {
             var context = this, args = arguments;
             clearTimeout(timer);
+            time = new Date().getTime();
             timer = setTimeout(function() {
                 fn.apply(context, args);
             }, delay);
