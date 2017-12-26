@@ -1,5 +1,5 @@
 // This is the webpack config used for unit tests.
-
+var path = require('path')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var baseConfig = require('./webpack.config')
@@ -14,6 +14,18 @@ var webpackConfig = merge(baseConfig, {
             // see discussion at https://github.com/vuejs/vue-loader/issues/724
             'scss-loader': 'sass-loader'
         }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                enforce: 'post',
+                exclude: /node_modules|utils\/popper\.js|utils\/date.\js/,
+                include: path.resolve(__dirname, './src'),
+                loader: 'istanbul-instrumenter-loader',
+                options: { esModules: true }
+            }
+        ]
     },
     plugins: [
         new webpack.DefinePlugin({
