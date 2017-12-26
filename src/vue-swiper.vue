@@ -15,7 +15,7 @@
             <div class="swiper-item-help a2" v-if="loop && addonAfter2" v-html="addonAfter2" :style="addonStyle"></div>
         </div>
         <div class="swiper-indicators" v-if="indicators">
-            <div :class="{'swiper-dot': true,'active': index === activeIndex}" :key="index"
+            <div :class="{'swiper-dot': true, 'is-active': index === activeIndex}" :key="index"
                  v-for="(item, index) in childrenList"
                  @click.stop="_transitionToPage(index)">
             </div>
@@ -100,7 +100,7 @@
                 translateY: 0,
                 timer: 0,
                 activeIndex: 0,
-                oldActiveIndex: '',
+                oldActiveIndex: this.showIndex,
                 slotsList: [],
                 childrenList: [],
                 style: {
@@ -424,7 +424,7 @@
             background: rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.5);
             transition: all .5s ease;
-            &.active {
+            &.is-active {
                 background: #05B4FF;
             }
         }
