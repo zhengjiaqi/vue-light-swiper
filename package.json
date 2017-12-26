@@ -20,7 +20,8 @@
     "build:watch": "cross-env NODE_ENV=production webpack --watch",
     "dev": "npm run build:watch | npm run start",
     "test": "npm run build && karma start test/unit/karma.conf.js --single-run",
-    "test:watch": "npm run build:watch | karma start test/unit/karma.conf.js"
+    "test:watch": "npm run build:watch | karma start test/unit/karma.conf.js",
+    "coveralls": "cat ./test/unit/coverage/lcov.info | coveralls"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
