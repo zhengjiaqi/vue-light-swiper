@@ -8,4 +8,4 @@ before_install:
    - export DISPLAY=:99.0
    - sh -e /etc/init.d/xvfb start
 after_success:
-  - npm run coveralls
+  - cat ./test/unit/coverage/lcov.info | ./node_modules/.bin/coveralls
