@@ -124,6 +124,9 @@
                 }, 30);
             }
         },
+        updated: throttle(function() {
+            this._handleUpdate();
+        }, 300),
         created() {
             this.childrenList = this.$children;
             this.onTouchMove = this.onTouchMove.bind(this);
@@ -243,6 +246,7 @@
                     this.addonBefore2 = this.slotsList[len - 2].elm.innerHTML;
                     this.addonAfter = this.slotsList[0].elm.innerHTML;
                     this.addonAfter2 = this.slotsList[1].elm.innerHTML;
+
                 }
             },
             _slid(index, displacement) {

@@ -1,6 +1,6 @@
 <template>
     <div class="swiper-item" :style="style"
-        :class="{
+         :class="{
             'is-active': active
         }">
         <slot></slot>
