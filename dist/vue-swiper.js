@@ -1,5 +1,5 @@
 /*!
- * vue-light-swiper v1.0.7
+ * vue-light-swiper v1.0.8
  * vue swiper for vue 2.0. light weight and simple
  * https://github.com/zhengjiaqi/vue-light-swiper
  * @author zhengjiaqi <971682460@qq.com>
