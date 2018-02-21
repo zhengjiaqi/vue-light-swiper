@@ -135,7 +135,10 @@
         mounted() {
             this.activeIndex = this.showIndex;
             this._setTimer();
-            this._resize();
+            // this._resize();
+            setTimeout(() => {   //mounted不能保证dom已存在
+                this._resize();
+            }, 0)
             this._handleUpdate();
             this.$on('childUpdate', throttle(function() {
                 this._handleUpdate();
